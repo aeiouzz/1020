@@ -1,0 +1,357 @@
+@charset "UTF-8";
+
+/* font-family: 'Nanum Brush Script', cursive;
+font-family: 'Nanum Gothic', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 📍 reset */
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+/* 블릿기호 삭제 */
+
+
+a {
+    color: #333;
+    text-decoration: none;
+    /* 밑줄 삭제 */
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+
+/* 📍 layout */
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* 📍 header */
+#header {}
+
+#header h1 {
+    float: left;
+    width: 110px;
+    padding-top: 15px;
+}
+
+/* 인라인요소 안에는 블록요소가 못 들어간다. 블록요소 안에는 블록, 인라인 다 가능 */
+
+#header h1 a {}
+
+#header h1 a img {
+    width: 100%;
+}
+
+/* 이미지는 에이를 따라가고 에이는 h1을 따라감 근데 a는 넓이값이 없음 결국 부모(h1)의 넓이가 110px라서 얘도 110px이 됨  */
+
+#header .nav {
+    background-color: #ddd;
+    float: right;
+}
+
+#header .nav ul {}
+
+#header .nav ul li {
+    position: relative;
+    float: left;
+    width: 140px;
+    text-align: center;
+}
+
+#header .nav ul li a {
+    display: block;
+    padding: 24px 20px 20px;
+    /* 위 양옆 아래 */
+    transition: 0.3s;
+}
+
+#header .nav ul li a:hover {
+    background-color: #ccc;
+}
+
+#header .nav ul li .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 66px;
+    z-index: 10;
+}
+
+/* 뒤에 있으면 적용이 안 될 때가 있음 그래서 제트 인덱스를 주면 맨 앞에 튀어나옴 기본값이 0이라 10 이상 주면 됨 */
+
+/* 부모와 내 머리의 공간이 0 */
+
+#header .nav ul li .submenu li {}
+
+#header .nav ul li .submenu li a {
+    background-color: #888;
+    padding: 10px;
+    color: #fff;
+}
+
+#header .nav ul li .submenu li a:hover {
+    background-color: #666;
+}
+
+
+/* 📍 banner */
+
+#banner {
+    overflow: hidden;
+}
+
+#banner .slidelist {
+    width: 3000px;
+    position: relative;
+}
+
+/* 슬라이드이미지가 1000px인데 전체(layout)도 1000이라 옆으로 정렬이 안 됨 그래서 1000에서 3000으로 늘려줌 */
+
+#banner .slidelist .slideImg {
+    position: relative;
+    float: left;
+    width: 1000px;
+}
+
+/* 1000을 넣어줘야 옆에 나란히 이미지가 온다 */
+
+#banner .slidelist .slideImg h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+#banner .slidelist .slideImg img {
+    width: 100%;
+    display: block;
+}
+
+/* ✨ img 태그(인라인 요소)에 빈틈이 생기는 이유 
+       1)display: block;
+       2)vertical-align: top; */
+
+/* 슬라이드이미지가 1000px인데 전체도 1000이라 옆으로 정렬이 안 됨 */
+
+
+/* 📍 content */
+#content1 {
+    margin-top: 20px;
+}
+
+#content1 .left {
+    float: left;
+    width: 49%;
+    padding: 20px;
+    box-sizing: border-box;
+    /* background-color: #f2f2f2;
+    background-image: url(../img/bg1.jpg);
+    background-repeat: no-repeat;
+    /* x값 y값 */
+    /* 오른쪽에서 20px 떨어진다 위 아래를 center 적으면 중앙 */
+    background: #f2f2f2 url(../img/bg1.jpg) no-repeat;
+    background-position: right 20px center;
+    background-size: 80px;
+    /* bgcolor bgimage position/bg-size bg-repeat */
+    /* 포지션이랑 사이즈는 별도로 하는 것이 좋다 */
+}
+
+#content1 .right {
+    float: right;
+    width: 49%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f2f2f2 url(../img/bg2.jpg) no-repeat;
+    background-size: 80px;
+    background-position: right 20px center;
+}
+
+#content1 .title {
+    font-size: 22px;
+    padding-bottom: 5px;
+}
+
+#content1 .desc {
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 15px;
+}
+
+#content1 .left .btn {
+    background: url(../img/icon1.jpg) no-repeat left center;
+    /* 왼쪽에 붙고 중앙 */
+    background-size: 20px;
+    padding-left: 25px;
+    /* 글자를 옆으로 밀고 싶을 땐 패딩값을 준다 */
+}
+
+#content1 .right .btn {
+    background: url(../img/icon2.jpg) no-repeat left center;
+    /* 왼쪽에 붙고 중앙 */
+    background-size: 20px;
+    padding-left: 25px;
+    /* 글자를 옆으로 밀고 싶을 땐 패딩값을 준다 */
+}
+
+#content1 .right .btn em {}
+
+/* 강조하기 위한 태그들(인라인 요소) */
+/* ✨ b태그 / strong태그
+같아 보이지만 다른 태그이다.
+b태그는 글자를 굵게만 만들고
+strong태그는 그 내용의 중요하다는 의미 또한 담고 있다.
+
+✨ i태그 / em태그
+둘 다 글자를 기울이지만
+i태그 
+em태그는 더 강조하는 역할을 한다. */
+
+
+
+/* <!-- /📍layer-bg/ --> */
+.layer-bg {
+    display: none;
+    position: fixed;
+    /* 얘가 기준이 됨 */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* = width: 100%; height: 100%; */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.layer-bg .layer {
+    position: absolute;
+    left: calc(50% - 250px);
+    /* 내 몸의 반만큼 500의 반 250이 왼쪽에서 250만큼 떨어져야하니까 */
+    top: calc(50% - 250px);
+    /* transform: translate(-50%, -50%); */
+    background-color: #fff;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+}
+
+.layer-bg .layer h2 {}
+
+.layer-bg .layer .close {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+/* 📍 content */
+#content2 {
+    margin-top: 30px;
+}
+
+#content2 .tab_menu {}
+
+#content2 .tab_menu ul {
+    overflow: hidden;
+}
+
+#content2 .tab_menu ul li {
+    float: left;
+    margin-right: 15px;
+    /* float으로 인한 부모의 영역 깨짐 현상 막기
+    1. clear: both;
+    2. overflow:hidden;
+    3. 부모에게 높이값을 강제로 준다  */
+}
+
+#content2 .tab_menu ul li a {
+    font-size: 24px;
+    display: block;
+    padding-bottom: 10px;
+    color: #999;
+}
+
+#content2 .tab_menu ul li.active a {
+    color: #000;
+    font-weight: bold;
+}
+
+#content2 .tab_cont {}
+
+#content2 .tab_cont>div {
+    overflow: hidden;
+}
+
+#content2 .tab_cont>div figure {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+}
+
+/* #content2 .tab_cont>div figure:first-child {}/* 첫째 */
+/* #content2 .tab_cont>div figure:nth-child(2){} /* = 둘째 */
+
+#content2 .tab_cont>div figure:last-child {
+    margin-right: 0;
+}
+
+
+#content2 .tab_cont>div figure img {
+    width: 100%;
+}
+
+#content2 .tab_cont>div figure figcaption {}
+
+#footer {
+    top: 30px;
+    background-color: #202020;
+    padding: 20px;
+
+}
+
+#footer h2 {
+    float: left;
+    width: 150px;
+}
+
+#footer h2 img {
+    width: 100%;
+}
+
+#footer .foot {
+    float: right;
+}
+
+#footer .foot ul {
+    padding-bottom: 10px;
+}
+
+#footer .foot ul li {
+    display: inline;
+}
+
+#footer .foot ul li a {
+    color: #fff;
+}
+
+#footer .foot address {
+    color: #ccc;
+    font-style: normal;
+}
