@@ -1,0 +1,323 @@
+@charset "UTF-8";
+
+/* 📍 reset.css 연결하는 방법 */
+@import url(reset.css);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@300&display=swap');
+
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+
+/* 📍 layout */
+
+.container {
+    width: 1146px;
+    margin: 0 auto;
+
+}
+
+body {
+    /* font-size: 18px;
+    line-height: 27px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal; */
+    font: normal 18px/27px 'Open Sans', sans-serif;
+
+
+    /* font-style font-variant font-weight font-size/line-height font-family
+     = font: italic   small-caps    bold        12px/30px        Georgia, serif; */
+}
+
+
+a {
+    color: #f0ad64;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    border: 1px solid #f0ad64;
+    padding: 0 30px;
+    line-height: 54px;
+    display: inline-block;
+    transition: 0.3s;
+    /* =300ms */
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #f0ad64;
+    color: #ffffff;
+}
+
+
+
+
+/* 📍 header */
+header {
+    position: fixed;
+    /* 부모가 자식이 죽었다고 생각함 그래서 화면 맨 끝에 나옴 */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 27px 0;
+    z-index: 100;
+}
+
+header .logo {
+    float: left;
+
+}
+
+header .logo a {
+    display: block;
+    width: 54px;
+    height: 54px;
+    background-image: url(../img/logo.png);
+    /* 상위 폴더를 부를 땐 ../ */
+    text-indent: -9999999em;
+    /* 웹접근성 */
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {}
+
+header nav ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* 대문자 */
+    line-height: 54px;
+    /* 이걸 해줘야 높이 54픽셀 안에 정중앙에 온다 */
+    /* 1000-1em // 100/1000=>0.1em */
+    letter-spacing: 0.1em;
+    /* =.1 */
+}
+
+
+.banner {}
+
+.banner .banner_list {}
+
+.banner .banner_list .slide {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    text-align: center;
+    padding-top: 162px;
+    /* 바깥 큰 영역에서 작은 공간의 위치를 잡을 때는 패딩을 준다 */
+    box-sizing: border-box;
+}
+
+.banner .banner_list .slide .main_tt {
+    color: #ffffff;
+    background-color: #f6604c;
+    font-size: 55px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.025em;
+    /* 25/1000em */
+    text-transform: uppercase;
+    padding: 27px 40px;
+    line-height: 54px;
+    font-weight: 300;
+    display: inline-block;
+}
+
+.banner .banner_list .slide .slide_contents {
+    width: 700px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 81px 0 43px;
+    margin-top: -27px;
+    /* 사각형이 겹칠 때 */
+}
+
+.banner .banner_list .slide .slide_contents p {
+    color: #ffffff;
+    margin-bottom: 54px;
+}
+
+.banner .banner_list .slide1 {
+    background-image: url(../img/slide-1-bg.jpg);
+}
+
+.banner .banner_list .slide2 {
+    background-image: url(../img/slide-2-bg.jpg);
+}
+
+.banner .banner_list .slide3 {
+    background-image: url(../img/slide-3-bg.jpg);
+}
+
+.banner .banner_list .slick-arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    visibility: hidden;
+    font-size: 55px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* ✨컨텐츠를 보이지 않게 하는 방법
+display: none; <-> display:block; (영역이 사라짐)
+opacity:0; <-> opacity:1 (영역이 유지, 애니메이션 가능)
+visibility: hidden; <-> visibility: visible; (영역이 유지)
+width: 0; height: 0; overflow: hidden; */
+
+.banner .banner_list .slick-prev {
+    margin-left: -578px;
+
+}
+
+.banner .banner_list .slick-prev:before {
+    content: "\f053";
+    visibility: visible;
+}
+
+.banner .banner_list .slick-next {
+    margin-left: 530px;
+}
+
+.banner .banner_list .slick-next:before {
+    content: "\f054";
+    visibility: visible;
+}
+
+
+/* 📍 slick */
+.banner .banner_list .slick-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    /* 부모가 영역이 깨짐현상이 일어나지 않을 때 자식이 float있고 부모도 float이 있을 때 부모가 position 중 absolute, fixed가 있을 때 안 깨짐!!!! */
+}
+
+.banner .banner_list .slick-dots li {
+    /* float: left; */
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0 10px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.banner .banner_list .slick-dots li button {
+    visibility: hidden;
+}
+
+.banner .banner_list .slick-dots li.slick-active {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    background: none;
+    vertical-align: -3px;
+}
+
+
+/* 📍 main_content */
+.main_content {
+    text-align: center;
+    padding: 74px 0 84px;
+}
+
+.main_content .content_tt {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    color: #2e2e2e;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.main_content .project_link {
+    color: #f6604c;
+    font-style: italic;
+    /* font-family: 'Open Sans', sans-serif; */
+    letter-spacing: 0.025em;
+    margin: 54px 0;
+
+}
+
+.main_content .project_link a {}
+
+.main_content .project_list {}
+
+.main_content .project_list li {
+    position: relative;
+    float: left;
+    width: 362px;
+    height: 362px;
+    margin: 0 30px 30px 0;
+    border: 1px solid #919191;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+/* .main_content .project_list li:nth-child(odd){}
+odd/2n+1 (홀수) even/2n(짝수) */
+.main_content .project_list li:nth-child(3n) {
+    margin-right: 0;
+}
+
+.main_content .project_list li:nth-child(4),
+.main_content .project_list li:nth-child(5),
+.main_content .project_list li:nth-child(6) {
+    margin-bottom: 0;
+}
+
+.main_content .project_list li img {
+    width: 100%;
+}
+
+.main_content .project_list li .hover_contents {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    left: 3px;
+    top: 3px;
+    bottom: 3px;
+    right: 3px;
+    padding-top: 82px;
+    transition: 0.3s;
+}
+
+.main_content .project_list li:hover .hover_contents {
+    opacity: 1;
+    /* 애니메이션은 오퍼시티 */
+}
+
+.main_content .project_list li .hover_contents h4 {
+    font-family: 'Roboto', sans-serif;
+    color: #f4af55;
+    font-size: 23px;
+    font-weight: lighter;
+    padding-bottom: 60px;
+}
+
+.main_content .project_list li .hover_contents a {
+    color: #fff;
+    font-size: 14px;
+    line-height: 5px;
+    /* 행간 */
+    letter-spacing: 0.1em;
+    /* 자간 */
+}
